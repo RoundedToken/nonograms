@@ -1,0 +1,136 @@
+.header {
+    display: grid;
+    grid-template-columns: 20% 15% 65%;
+    height: 75px;
+    background-color: var(--secondary-bg);
+    border-bottom: 4px solid var(--border);
+    box-shadow: 0px 0px 2px 2px var(--shadow);
+}
+
+@media (max-width: 1000px) {
+    .header {
+        grid-template-columns: 8% 20% 72%;
+    }
+}
+
+.game-bar {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr 2fr 2fr;
+}
+
+.sound-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .game-bar {
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr 2fr;
+    }
+}
+
+.header__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    text-wrap: nowrap;
+}
+
+@media (max-width: 750px) {
+    .header__title {
+        display: none;
+    }
+
+    .header {
+        grid-template-columns: 15% 85%;
+    }
+}
+
+.continue-play {
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+
+.random-game {
+    grid-column: 4/5;
+}
+
+.timer {
+    text-wrap: nowrap;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 20vw;
+}
+
+.to-menu,
+.continue-play,
+.button,
+.random-game {
+    text-wrap: nowrap;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+@media (max-width: 1000px) {
+    .button > div,
+    .button > span {
+        display: none;
+    }
+}
+
+.to-menu {
+    justify-self: flex-start;
+}
+
+[data-tooltip] {
+    position: relative;
+}
+[data-tooltip][data-position='right']::before {
+    top: -50%;
+    left: 105%;
+    transform: translateX(-20px);
+}
+[data-tooltip][data-position='bottom']::before {
+    top: 150%;
+    transform: translateY(-20px);
+    left: -5%;
+}
+[data-tooltip][data-position='left']::before {
+    top: -50%;
+    right: 105%;
+    left: auto;
+    transform: translateX(20px);
+}
+[data-tooltip]:hover::before {
+    transform: translate(0);
+    opacity: 1;
+}
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: max-content;
+    display: block;
+    background: var(--secondary-bg);
+    padding: 10px;
+    top: -50px;
+    box-shadow: 0px 2px 5px #0000008c;
+    border-radius: 3px;
+    text-align: center;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

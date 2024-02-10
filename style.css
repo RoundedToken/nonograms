@@ -1,0 +1,134 @@
+html {
+    width: 100%;
+}
+.app {
+    position: relative;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: 'Rubik', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-bg);
+    color: var(--main-color);
+}
+
+button {
+    color: inherit;
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+
+button > img {
+    filter: var(--icon-filter);
+}
+
+.app * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: min-content 500px;
+    grid-template-rows: min-content 500px;
+}
+
+.game-container_easy {
+    grid-template-columns: min-content 460px;
+    grid-template-rows: min-content 460px;
+}
+
+.game-container_hard {
+    grid-template-columns: min-content 550px;
+    grid-template-rows: min-content 550px;
+}
+
+@media (max-width: 750px) {
+    .game-container {
+        grid-template-columns: min-content 300px;
+        grid-template-rows: min-content 300px;
+        font-size: 12px;
+    }
+
+    .game-container_hard {
+        grid-template-columns: min-content 380px;
+        grid-template-rows: min-content 380px;
+    }
+
+    .game-container_medium {
+        grid-template-columns: min-content 350px;
+        grid-template-rows: min-content 350px;
+    }
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    filter: var(--icon-filter);
+}
+
+.icon-small {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .hov:hover {
+        transform: scale(1.05);
+    }
+}
+
+.hov {
+    transition: transform 250ms ease-in-out;
+    cursor: pointer;
+}
+
+#app-light {
+    --grid-border: rgb(114, 165, 227);
+    --grid-main-border: rgb(62, 102, 222);
+    --grid-super-border: rgb(140, 5, 5);
+    --cell-bg: rgb(50, 48, 46);
+    --cell-hint: brown;
+    --cross-color: rgb(216, 77, 79);
+    --header-bg: rgb(124, 72, 72);
+    --main-bg: rgb(200, 206, 212);
+    --main-color: rgb(54, 34, 14);
+    --secondary-bg: rgb(220, 222, 224);
+    --hint-bg: green;
+    --border: rgb(200, 206, 212);
+    --shadow: rgb(189, 184, 184);
+    --icon-filter: invert(56%) sepia(61%) saturate(6992%) hue-rotate(214deg) brightness(89%)
+        contrast(96%);
+}
+
+#app-dark {
+    --grid-border: rgb(235, 135, 118);
+    --grid-main-border: rgb(216, 77, 79);
+    --grid-super-border: red;
+    --cell-bg: rgb(237, 221, 196);
+    --cell-hint: rgb(237, 221, 196);
+    --cross-color: rgb(62, 102, 222);
+    --header-bg: rgb(173, 170, 170);
+    --main-bg: rgb(33, 37, 41);
+    --main-color: rgb(237, 221, 196);
+    --secondary-bg: rgb(41, 46, 49);
+    --hint-bg: green;
+    --border: rgb(33, 37, 41);
+    --shadow: rgba(0, 0, 0, 0.232);
+    --icon-filter: invert(40%) sepia(39%) saturate(1404%) hue-rotate(316deg) brightness(92%)
+        contrast(90%);
+}
